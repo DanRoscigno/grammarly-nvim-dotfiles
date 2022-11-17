@@ -56,8 +56,8 @@ Plug 'nvim-zh/colorful-winsep.nvim'
 Plug 'vimwiki/vimwiki'
 Plug 'lervag/vimtex'
 
-Plug 'tpope/vim-dadbod'
-Plug 'kristijanhusak/vim-dadbod-ui'
+" Plug 'tpope/vim-dadbod'
+" Plug 'kristijanhusak/vim-dadbod-ui'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
