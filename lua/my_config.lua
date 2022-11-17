@@ -375,7 +375,7 @@ require('nvim-treesitter.configs').setup {
     },
     highlight = {
         enable = true,
-        disable = { 'vimwiki' },
+        disable = { 'vimwiki', 'lua' },
         additional_vim_regex_highlighting = false,
     },
     indent = { enable = false },
@@ -586,44 +586,11 @@ local opts = {
 
 require('rust-tools').setup(opts)
 
--- This will be the path towards your sumneko folder. This is subjective
-local sumneko_root_path = os.getenv("HOME") ..
-    "/.config/nvim/lua-language-server"
-local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
-lspconfig.sumneko_lua.setup({
-    cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
-    capabilities = capabilities,
-    settings = {
-        Lua = {
-            runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
-            completion = { enable = true, callSnippet = "Both" },
-            diagnostics = {
-                enable = true,
-                globals = { 'vim', 'describe',
-                    'awesome', 'client', 'screen', 'root' },
-                disable = { "lowercase-global" }
-            },
-            workspace = {
-                library = {
-                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                    [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-                    [vim.fn.expand('/usr/share/awesome/lib')] = true
-                },
-                -- adjust these two values if your performance is not optimal
-                maxPreload = 2000,
-                preloadFileSize = 1000
-            }
-        }
-    },
-    on_attach = on_attach
-})
-
-local credentials = require("credentials")
 lspconfig.grammarly.setup({
-    cmd = { "grammarly-languageserver", "--stdio" },
+    cmd = { "/home/droscigno/GitHub/grammarly-language-server/extension/node_modules/.bin/grammarly-languageserver", "--stdio" },
     filetypes = { "markdown", "text" },
     init_options = {
-        clientId = credentials.grammarly_client_id,
+        clientId = 'client_BaDkMgx4X19X9UxxYRCXZo',
     },
 })
 --]]
