@@ -6,6 +6,9 @@ call plug#begin()
 Plug 'neovim/nvim-lspconfig'
 Plug 'onsails/lspkind-nvim'
 Plug 'ray-x/lsp_signature.nvim'
+
+" lsp_lines looks interesting, maybe it can be used
+" to show grammarly diagnostics ?
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -49,8 +52,8 @@ Plug 'SmiteshP/nvim-navic'
 Plug 'mbbill/undotree'
 Plug 'ThePrimeagen/harpoon'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-Plug 'untitled-ai/jupyter_ascending.vim'
-Plug 'petertriho/nvim-scrollbar'
+" Plug 'untitled-ai/jupyter_ascending.vim'
+" Plug 'petertriho/nvim-scrollbar'
 Plug 'nvim-zh/colorful-winsep.nvim'
 
 Plug 'vimwiki/vimwiki'
@@ -78,7 +81,8 @@ call plug#end()
 " General Settings
 "
 
-set number relativenumber
+" set number relativenumber
+set number
 set encoding=utf-8
 set fileencoding=utf-8
 set mouse=a
