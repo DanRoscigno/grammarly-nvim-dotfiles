@@ -586,6 +586,9 @@ local opts = {
 
 require('rust-tools').setup(opts)
 
+-- Use Marksman for markdown
+-- require'lspconfig'.marksman.setup{}
+
 lspconfig.grammarly.setup({
     cmd = { "/home/droscigno/GitHub/grammarly-language-server/extension/node_modules/.bin/grammarly-languageserver", "--stdio" },
     filetypes = { "markdown", "text" },

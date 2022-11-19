@@ -52,7 +52,6 @@ Plug 'SmiteshP/nvim-navic'
 Plug 'mbbill/undotree'
 Plug 'ThePrimeagen/harpoon'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-" Plug 'untitled-ai/jupyter_ascending.vim'
 " Plug 'petertriho/nvim-scrollbar'
 Plug 'nvim-zh/colorful-winsep.nvim'
 
@@ -128,18 +127,6 @@ autocmd BufEnter * setlocal fo-=c fo-=r fo-=o
 
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
-
-" Jupyter Ascending
-let g:jupyter_ascending_auto_write = v:false
-let g:jupyter_ascending_default_mappings = v:false
-augroup jupyter_bindings
-   autocmd!
-   autocmd BufEnter *.py nnoremap <leader><leader>w :call jupyter_ascending#sync()<CR>
-   autocmd BufEnter *.py nnoremap <leader><leader>x <Plug>JupyterExecute
-   autocmd BufEnter *.py nnoremap <leader><leader>X <Plug>JupyterExecuteAll
-augroup END
-
-
 
 
 "
