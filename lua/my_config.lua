@@ -455,7 +455,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local on_attach = function(client, bufnr)
     require('lsp_signature').on_attach()
-    if client.name ~= "efm" then
+    if client.server_capabilities.documentSymbolProvider then
         require('nvim-navic').attach(client, bufnr)
     end
     local opts = { noremap = true, silent = true, buffer = true }
