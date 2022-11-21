@@ -5,6 +5,28 @@ local silent_noremap = {
     silent = true
 }
 
+local config = {
+  -- disable virtual text
+  virtual_text = false,
+  -- show signs
+  signs = {
+    active = signs,
+  },
+  update_in_insert = true,
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    --prefix = "",
+  },
+}
+
+vim.diagnostic.config(config)
+
 local function nsnoremap(lhs, rhs)
     vim.api.nvim_set_keymap('n', lhs, rhs, silent_noremap)
 end
@@ -756,4 +778,3 @@ end
 -- Language Specific Extensions
 require('dap-go').setup()
 -- ]]
-require('handlers')
