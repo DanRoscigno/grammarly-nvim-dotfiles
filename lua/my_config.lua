@@ -241,14 +241,16 @@ nsnoremap('<leader>f*', '<CMD>lua require("telescope.builtin").grep_string()<CR>
 nsnoremap('<leader>fc', '<CMD>lua require("telescope").extensions.file_browser.file_browser({ cwd = "~/.config/" })<CR>')
 --]]
 
-
-
-
-
-
-
-
-
+nsnoremap(']d',   '<CMD>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>')
+nsnoremap('[d',   '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>')
+nsnoremap('gl',   '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>')
+nsnoremap('gD',   '<cmd>lua vim.lsp.buf.declaration()<CR>')
+nsnoremap('gd',   '<cmd>lua vim.lsp.buf.definition()<CR>')
+nsnoremap('K',    '<cmd>lua vim.lsp.buf.hover()<CR>')
+nsnoremap('gi',   '<cmd>lua vim.lsp.buf.implementation()<CR>')
+nsnoremap('gr',   '<cmd>lua vim.lsp.buf.references()<CR>')
+nsnoremap('C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+nsnoremap('<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>')
 
 
 -- ToggleTerm
@@ -590,6 +592,8 @@ require('rust-tools').setup(opts)
 -- require'lspconfig'.marksman.setup{}
 
 lspconfig.grammarly.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
     cmd = { "/home/droscigno/GitHub/grammarly-language-server/extension/node_modules/.bin/grammarly-languageserver", "--stdio" },
     filetypes = { "markdown", "text" },
     init_options = {
@@ -723,6 +727,7 @@ vim.keymap.set('n', '<leader>mp', require("harpoon.ui").nav_prev, opts)
 -- Debugging
 --- [[
 vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<CR>")
+-- lua vim.diagnostic.goto_next({ border = "rounded" })
 vim.keymap.set("n", "<F10>", ":lua require'dap'.step_into()<CR>")
 vim.keymap.set("n", "<F11>", ":lua require'dap'.step_over()<CR>")
 vim.keymap.set("n", "<F12>", ":lua require'dap'.step_out()<CR>")
@@ -751,3 +756,4 @@ end
 -- Language Specific Extensions
 require('dap-go').setup()
 -- ]]
+require('handlers')
