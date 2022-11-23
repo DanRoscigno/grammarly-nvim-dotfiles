@@ -534,81 +534,13 @@ lspconfig.tsserver.setup {
     on_attach = on_attach,
 }
 
-lspconfig.gopls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-        gopls = {
-            analyses = {
-                nilness = true,
-                unusedparams = true,
-                unusedwrite = true,
-                useany = true,
-                assign = true,
-                atomic = true,
-                bools = true,
-                cgocall = true,
-                erroras = true,
-                fieldalignment = true,
-                printf = true,
-            },
-        },
-    },
-}
-
-lspconfig.golangci_lint_ls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-}
 
 lspconfig.taplo.setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
 
-local opts = {
-    -- rust-tools options
-    tools = {
-        autoSetHints = true,
-        -- hover_with_actions = true,
-        inlay_hints = {
-            show_parameter_hints = true,
-            parameter_hints_prefix = "",
-            other_hints_prefix = "",
-        },
-    },
 
-    -- all the opts to send to nvim-lspconfig
-    -- these override the defaults set by rust-tools.nvim
-    -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-    -- https://rust-analyzer.github.io/manual.html#features
-    server = {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        settings = {
-            ["rust-analyzer"] = {
-                assist = {
-                    importEnforceGranularity = true,
-                    importPrefix = "crate"
-                },
-                cargo = {
-                    allFeatures = true
-                },
-                checkOnSave = {
-                    -- default: `cargo check`
-                    command = "clippy"
-                },
-                inlayHints = {
-                    typeHints = {
-                        enable = false,
-                    },
-                },
-            },
-        }
-    },
-}
-
-require('rust-tools').setup(opts)
 
 -- Use Marksman for markdown
 require'lspconfig'.marksman.setup{}
@@ -684,7 +616,3 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
     dapui.close()
 end
-
--- Language Specific Extensions
-require('dap-go').setup()
--- ]]

@@ -64,8 +64,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 
-Plug 'fatih/vim-go', { 'for': [ 'go', 'rapid', 'gosum' ] }
-Plug 'simrat39/rust-tools.nvim', { 'for': [ 'rust' ] }
+" Plug 'fatih/vim-go', { 'for': [ 'go', 'rapid', 'gosum' ] }
+" Plug 'simrat39/rust-tools.nvim', { 'for': [ 'rust' ] }
 
 Plug 'numToStr/Comment.nvim'
 Plug 'rafamadriz/friendly-snippets'
