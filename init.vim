@@ -27,6 +27,13 @@ Plug 'ray-x/lsp_signature.nvim'
 "      clientId = 'client_BaDkMgx4X19X9UxxYRCXZo',
 "   },
 " })
+" I think telescope might also be required for Grammarly to work, at least with the config I am using it is:
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope-live-grep-args.nvim'
+
 
 " lsp_lines looks interesting, maybe it can be used
 " to show grammarly diagnostics ?
@@ -85,11 +92,6 @@ Plug 'lervag/vimtex'
 " Plug 'tpope/vim-dadbod'
 " Plug 'kristijanhusak/vim-dadbod-ui'
 
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-file-browser.nvim'
-Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 
 " Debugging
 Plug 'mfussenegger/nvim-dap'
