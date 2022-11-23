@@ -71,7 +71,7 @@ Plug 'nvim-lualine/lualine.nvim'
 " Plug 'chentoast/marks.nvim'
 Plug 'SmiteshP/nvim-navic'
 Plug 'mbbill/undotree'
-Plug 'ThePrimeagen/harpoon'
+" Plug 'ThePrimeagen/harpoon'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " Plug 'petertriho/nvim-scrollbar'
 Plug 'nvim-zh/colorful-winsep.nvim'
