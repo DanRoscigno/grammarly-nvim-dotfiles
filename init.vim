@@ -7,6 +7,27 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'onsails/lspkind-nvim'
 Plug 'ray-x/lsp_signature.nvim'
 
+" For Grammarly to work with Markdown we need a language server built with Markdown support.  The one for VSCode
+" has this built in:
+" git clone git@github.com:znck/grammarly.git
+" cd grammarly
+" pnpm install
+" pnpm run build
+" pnpm test
+" sudo find $HOME -type f -name grammarly-languageserver
+" in the lua file where grammarly is configured, set the cmd parameter of the grammarly plugin to the binary just built:
+" cmd = { "/home/droscigno/GitHub/grammarly/extension/node_modules/.bin/grammarly-languageserver", "--stdio" },↴
+" full config:
+" lspconfig.grammarly.setup({
+"   capabilities = capabilities,
+"   on_attach = on_attach,
+"   cmd = { "/home/droscigno/GitHub/grammarly/extension/node_modules/.bin/grammarly-languageserver", "--stdio" },
+"   filetypes = { "markdown", "text" },
+"   init_options = {
+"      clientId = 'client_BaDkMgx4X19X9UxxYRCXZo',
+"   },
+" })
+
 " lsp_lines looks interesting, maybe it can be used
 " to show grammarly diagnostics ?
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
@@ -55,7 +76,8 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " Plug 'petertriho/nvim-scrollbar'
 Plug 'nvim-zh/colorful-winsep.nvim'
 
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
+Plug 'artempyanykh/marksman'
 Plug 'lervag/vimtex'
 
 " Plug 'tpope/vim-dadbod'
