@@ -76,8 +76,10 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " Plug 'petertriho/nvim-scrollbar'
 Plug 'nvim-zh/colorful-winsep.nvim'
 
-" Plug 'vimwiki/vimwiki'
 Plug 'artempyanykh/marksman'
+" add filetype so we can associate .mdx with markdown
+Plug 'nathom/filetype.nvim',
+
 Plug 'lervag/vimtex'
 
 " Plug 'tpope/vim-dadbod'
