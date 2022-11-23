@@ -311,19 +311,6 @@ command! FormatJSON :%!python3 -m json.tool
 lua require('my_config')
 
 "
-" Vimwiki
-"
-
-let g:vimwiki_hl_headers = 1
-let g:vimwiki_hl_cb_checked = 2
-let g:vimwiki_url_maxsave = 0
-let g:vimwiki_html_header_numbering = 0
-let g:vimwiki_listsyms = '✗○◐●✓'
-let g:vimwiki_valid_html_tags = 'b,i,s,u,sub,sup,kbd,br,hr,div'
-
-autocmd BufEnter *.wiki :syntax sync fromstart
-
-"
 " VimTex
 "
 let g:vimtex_view_method = 'zathura'
