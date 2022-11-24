@@ -120,28 +120,22 @@ require('lualine').setup {
     extensions = {},
     sections = {
         lualine_a = {
-            { 'mode', lower = true },
-            { spell_mode_on },
-        },
-        lualine_b = {
             'branch',
             'diff',
         },
-        lualine_c = {
+
+        lualine_b = {
             'filename',
-            { navic.get_location, cond = navic.is_available },
         },
-        lualine_x = {
-            'encoding',
-            'fileformat',
-            'filetype',
-        },
-        lualine_y = {
-            'progress',
-        },
+
+        lualine_c = {},
+
+        lualine_x = {},
+
+        lualine_y = {},
+
         lualine_z = {
-            { total_visual_words },
-            'location',
+            'progress',
         },
     },
 }
