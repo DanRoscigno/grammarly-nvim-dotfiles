@@ -41,7 +41,7 @@ require('bufferline').setup {
     clickable = true,
     exclude_ft = {},
     exclude_name = {},
-    icons = true,
+    icons = false,
     icon_custom_colors = false,
     icon_separator_active = '▎',
     icon_separator_inactive = '▎',
@@ -110,7 +110,6 @@ local navic = require('nvim-navic')
 
 require('lualine').setup {
     options = {
-        icons_enabled = true,
         theme = 'gruvbox',
         section_separators = {},
         component_separators = { left = '|', right = '|' },
@@ -194,6 +193,12 @@ require('gitsigns').setup {
     },
 }
 --]]
+
+
+
+
+
+
 
 
 
@@ -287,6 +292,21 @@ require('toggleterm').setup {
 --]]
 
 
+
+require'cmp'.setup {
+  sources = {
+    { name = 'nvim_lsp' }
+  }
+}
+
+-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+
+
+
+
+
 -- Treesitter
 ---[[
 require('nvim-treesitter.configs').setup {
@@ -308,6 +328,9 @@ require('treesitter-context').setup {
     enable = true,
 }
 --]]
+
+
+
 
 
 -- Comment.nvim
@@ -336,11 +359,14 @@ require('Comment').setup {
 
 
 
+
+
+
+
 -- LSP
 ---[[
 -- require('lsp_lines').setup()
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local on_attach = function(client, bufnr)
@@ -368,7 +394,6 @@ local on_attach = function(client, bufnr)
 end
 
 
-
 -- Use Marksman for markdown
 require'lspconfig'.marksman.setup{}
 
@@ -380,7 +405,6 @@ require("filetype").setup({
         },
    },
 })
-
 
 require'lspconfig'.grammarly.setup({
     capabilities = capabilities,
