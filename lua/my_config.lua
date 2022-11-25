@@ -45,8 +45,8 @@ require('bufferline').setup {
     icon_custom_colors = false,
     icon_separator_active = '▎',
     icon_separator_inactive = '▎',
-    icon_close_tab = '',
-    icon_close_tab_modified = '●',
+    icon_close_tab = 'X',
+    icon_close_tab_modified = 'm',
     icon_pinned = '車',
     insert_at_start = false,
     insert_at_end = true,
@@ -110,6 +110,7 @@ local navic = require('nvim-navic')
 
 require('lualine').setup {
     options = {
+        icons_enabled = true,
         theme = 'gruvbox',
         section_separators = {},
         component_separators = { left = '|', right = '|' },

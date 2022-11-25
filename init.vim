@@ -78,7 +78,7 @@ Plug 'artempyanykh/marksman'
 " add filetype so we can associate .mdx with markdown
 Plug 'nathom/filetype.nvim',
 
-Plug 'lervag/vimtex'
+" Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -296,14 +296,14 @@ lua require('my_config')
 "
 " VimTex
 "
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_quickfix_mode = 0
-let g:vimtex_mappings_enabled = 0
-let g:vimtex_log_ignore = [
-   \ 'Underfull',
-   \ 'Overfull',
-   \ 'specifier changed to',
-   \ 'Token not allowed in a PDF string',
-   \ ]
-let g:vimtext_context_pdf_viewer = 1
-let g:vimtex_context_pdf_viewer = 'okular'
+"let g:vimtex_view_method = 'zathura'
+"let g:vimtex_quickfix_mode = 0
+"let g:vimtex_mappings_enabled = 0
+"let g:vimtex_log_ignore = [
+   "\ 'Underfull',
+   "\ 'Overfull',
+   "\ 'specifier changed to',
+   "\ 'Token not allowed in a PDF string',
+   "\ ]
+"let g:vimtext_context_pdf_viewer = 1
+"let g:vimtex_context_pdf_viewer = 'okular'
