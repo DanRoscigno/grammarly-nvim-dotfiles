@@ -56,7 +56,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-eunuch'
+" Plug 'tpope/vim-eunuch'
 
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'rktjmp/lush.nvim'
