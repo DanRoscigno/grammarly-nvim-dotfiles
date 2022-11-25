@@ -61,9 +61,6 @@ nsnoremap("<S-Tab>", "<CMD>BufferPrevious<CR>")
 --]]
 
 
--- require('scrollbar').setup()
--- require('scrollbar.handlers.gitsigns').setup()
-
 
 require('colorful-winsep').setup()
 
@@ -199,12 +196,6 @@ require('gitsigns').setup {
 
 
 
-
-
-
-
-
-
 -- Telescope
 ---[[
 local ts = require('telescope')
@@ -282,8 +273,6 @@ require('toggleterm').setup {
     open_mapping = [[\\]],
     insert_mappings = false,
     terminal_mappings = true,
-    -- on_open = fun(t: Terminal), -- function to run when the terminal opens
-    -- on_close = fun(t: Terminal), -- function to run when the terminal closes
     hide_numbers = true,
     shade_filetypes = {},
     shade_terminals = true,
@@ -320,9 +309,6 @@ require('treesitter-context').setup {
 --]]
 
 
-
-
-
 -- Comment.nvim
 ---[[
 require('Comment').setup {
@@ -346,10 +332,6 @@ require('Comment').setup {
     post_hook = nil,
 }
 --]]
-
-
-
-
 
 
 
@@ -384,69 +366,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<RightMouse>', '<LeftMouse><CMD>lua vim.lsp.buf.definition()<CR>', opts)
 end
 
-local lspconfig = require('lspconfig')
-
-lspconfig.clangd.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    cmd = {
-        'clangd',
-        '--background-index',
-        '--cross-file-rename',
-        '--clang-tidy',
-        '--completion-style=bundled',
-    },
-}
-
-lspconfig.pyright.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    cmd = { 'pyright-langserver', '--stdio' },
-    filetypes = { 'python' },
-    settings = {
-        python = {
-            analysis = {
-                autoSearchPaths = true,
-                diagnosticMode = 'workspace',
-                useLibraryCodeForTypes = true,
-            },
-        },
-    },
-}
-
-lspconfig.efm.setup {
-    on_attach = on_attach,
-    flags = {
-        debounce_text_changes = 150,
-    },
-    init_options = {
-        documentFormatting = true,
-    },
-    filetypes = { "python" },
-    settings = {
-        rootMarkers = { ".git/", "requirements.txt" },
-        languages = {
-            python = {
-                {
-                    formatCommand = "black --quiet -",
-                    formatStdin = true,
-                },
-            },
-        },
-    },
-}
-
-lspconfig.tsserver.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-}
-
-
-lspconfig.taplo.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-}
-
 
 
 -- Use Marksman for markdown
@@ -462,7 +381,7 @@ require("filetype").setup({
 })
 
 
-lspconfig.grammarly.setup({
+require'lspconfig'.grammarly.setup({
     capabilities = capabilities,
     on_attach = on_attach,
     cmd = { "/home/droscigno/GitHub/grammarly/extension/node_modules/.bin/grammarly-languageserver", "--stdio" },
