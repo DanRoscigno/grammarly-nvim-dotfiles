@@ -1,4 +1,3 @@
-"
 " Plugin Management
 "
 
@@ -19,10 +18,6 @@ Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
 Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-nvim-lua'
-Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
-Plug 'hrsh7th/cmp-path'
-Plug 'kdheepak/cmp-latex-symbols'
 Plug 'hrsh7th/nvim-cmp'
 
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -38,26 +33,21 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 
-
 Plug 'numToStr/Comment.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'akinsho/toggleterm.nvim'
 Plug 'romgrk/barbar.nvim'
 Plug 'nvim-lualine/lualine.nvim'
-
 Plug 'SmiteshP/nvim-navic'
 Plug 'mbbill/undotree'
-
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-
 Plug 'nvim-zh/colorful-winsep.nvim'
 
-" Markdown
+" Markdown LSP
 Plug 'artempyanykh/marksman'
 " add filetype so we can associate .mdx with markdown
 Plug 'nathom/filetype.nvim',
 
-" Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -229,8 +219,7 @@ nnoremap H :call JumpToStartOfLine()<CR>
 nnoremap L :call JumpToEndOfLine()<CR>
 
 
-"" HTML
-autocmd FileType html set nowrap
+
 
 "
 " Lua Config
