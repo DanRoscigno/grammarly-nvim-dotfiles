@@ -7,27 +7,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'onsails/lspkind-nvim'
 Plug 'ray-x/lsp_signature.nvim'
 
-" For Grammarly to work with Markdown we need a language server built with Markdown support.  The one for VSCode
-" has this built in:
-" git clone git@github.com:znck/grammarly.git
-" cd grammarly
-" pnpm install
-" pnpm run build
-" pnpm test
-" sudo find $HOME -type f -name grammarly-languageserver
-" in the lua file where grammarly is configured, set the cmd parameter of the grammarly plugin to the binary just built:
-" cmd = { "/home/droscigno/GitHub/grammarly/extension/node_modules/.bin/grammarly-languageserver", "--stdio" },↴
-" full config:
-" lspconfig.grammarly.setup({
-"   capabilities = capabilities,
-"   on_attach = on_attach,
-"   cmd = { "/home/droscigno/GitHub/grammarly/extension/node_modules/.bin/grammarly-languageserver", "--stdio" },
-"   filetypes = { "markdown", "text" },
-"   init_options = {
-"      clientId = 'client_BaDkMgx4X19X9UxxYRCXZo',
-"   },
-" })
-" I think telescope might also be required for Grammarly to work, at least with the config I am using it is:
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -250,60 +229,10 @@ nnoremap H :call JumpToStartOfLine()<CR>
 nnoremap L :call JumpToEndOfLine()<CR>
 
 
-
-"
-" Language Specific
-"
-
 "" HTML
 autocmd FileType html set nowrap
-
-"" Latex
-function! ZathuraOpenPdf()
-    let fullPath = expand("%:p")
-    let pdfFile = substitute(fullPath, ".tex", ".pdf", "")
-    silent make target="%" &
-    execute "silent !zathura '" . pdfFile . "' &"
-endfunction
-
-function! BuildLatexFiles()
-    let fullPath = expand("%:p")
-    let pdfFile = substitute(fullPath, ".tex", ".pdf", "")
-    execute "silent !rm '" . pdfFile . "'"
-    silent make target="%"
-endfunction
-
-nnoremap <silent> <A-p> <CMD>call ZathuraOpenPdf()<CR>
-nnoremap <silent> <A-b> <CMD>call BuildLatexFiles()<CR>
-
-autocmd BufWritePost *.*tex call BuildLatexFiles()
-
-"" Custom Commands
-
-command! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
-command! FormatJSON :%!python3 -m json.tool
-
-
-
-
-
 
 "
 " Lua Config
 "
 lua require('my_config')
-
-"
-" VimTex
-"
-"let g:vimtex_view_method = 'zathura'
-"let g:vimtex_quickfix_mode = 0
-"let g:vimtex_mappings_enabled = 0
-"let g:vimtex_log_ignore = [
-   "\ 'Underfull',
-   "\ 'Overfull',
-   "\ 'specifier changed to',
-   "\ 'Token not allowed in a PDF string',
-   "\ ]
-"let g:vimtext_context_pdf_viewer = 1
-"let g:vimtex_context_pdf_viewer = 'okular'
