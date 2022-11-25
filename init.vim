@@ -44,7 +44,7 @@ Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
 Plug 'hrsh7th/cmp-path'
 Plug 'kdheepak/cmp-latex-symbols'
-Plug 'saadparwaiz1/cmp_luasnip'
+" Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'hrsh7th/nvim-cmp'
 
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -62,9 +62,9 @@ Plug 'norcalli/nvim-colorizer.lua'
 
 
 Plug 'numToStr/Comment.nvim'
-Plug 'rafamadriz/friendly-snippets'
-Plug 'iurimateus/luasnip-latex-snippets.nvim'
-Plug 'L3MON4D3/LuaSnip'
+" Plug 'rafamadriz/friendly-snippets'
+" Plug 'iurimateus/luasnip-latex-snippets.nvim'
+" Plug 'L3MON4D3/LuaSnip'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'akinsho/toggleterm.nvim'
 Plug 'romgrk/barbar.nvim'
@@ -84,13 +84,6 @@ Plug 'nathom/filetype.nvim',
 
 Plug 'lervag/vimtex'
 
-
-" Debugging
-"Plug 'mfussenegger/nvim-dap'
-"Plug 'leoluz/nvim-dap-go'
-"Plug 'rcarriga/nvim-dap-ui'
-"Plug 'theHamsta/nvim-dap-virtual-text'
-"Plug 'nvim-telescope/telescope-dap.nvim'
 call plug#end()
 
 
