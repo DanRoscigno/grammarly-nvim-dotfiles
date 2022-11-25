@@ -60,8 +60,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 
-" Plug 'fatih/vim-go', { 'for': [ 'go', 'rapid', 'gosum' ] }
-" Plug 'simrat39/rust-tools.nvim', { 'for': [ 'rust' ] }
 
 Plug 'numToStr/Comment.nvim'
 Plug 'rafamadriz/friendly-snippets'
@@ -71,30 +69,28 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'akinsho/toggleterm.nvim'
 Plug 'romgrk/barbar.nvim'
 Plug 'nvim-lualine/lualine.nvim'
-" Plug 'chentoast/marks.nvim'
+
 Plug 'SmiteshP/nvim-navic'
 Plug 'mbbill/undotree'
-" Plug 'ThePrimeagen/harpoon'
+
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-" Plug 'petertriho/nvim-scrollbar'
+
 Plug 'nvim-zh/colorful-winsep.nvim'
 
+" Markdown
 Plug 'artempyanykh/marksman'
 " add filetype so we can associate .mdx with markdown
 Plug 'nathom/filetype.nvim',
 
 Plug 'lervag/vimtex'
 
-" Plug 'tpope/vim-dadbod'
-" Plug 'kristijanhusak/vim-dadbod-ui'
-
 
 " Debugging
-Plug 'mfussenegger/nvim-dap'
-Plug 'leoluz/nvim-dap-go'
-Plug 'rcarriga/nvim-dap-ui'
-Plug 'theHamsta/nvim-dap-virtual-text'
-Plug 'nvim-telescope/telescope-dap.nvim'
+"Plug 'mfussenegger/nvim-dap'
+"Plug 'leoluz/nvim-dap-go'
+"Plug 'rcarriga/nvim-dap-ui'
+"Plug 'theHamsta/nvim-dap-virtual-text'
+"Plug 'nvim-telescope/telescope-dap.nvim'
 call plug#end()
 
 
