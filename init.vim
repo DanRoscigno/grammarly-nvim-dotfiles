@@ -2,10 +2,14 @@
 "
 
 call plug#begin()
+" Simple configuration of LSPs
 Plug 'neovim/nvim-lspconfig'
+
+" no idea :(
 Plug 'onsails/lspkind-nvim'
 Plug 'ray-x/lsp_signature.nvim'
 
+" no idea :(
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -17,27 +21,44 @@ Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 " to show grammarly diagnostics ?
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
+" This gives the file list when adding a link
+" in a markdown file.  I think marksman LSP passes
+" the files to cmp and cmp displays the list
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/nvim-cmp'
 
+" highlighting and indenting
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'nvim-treesitter/nvim-treesitter-context'
+
+
+" no idea :(
 Plug 'David-Kunz/markid'
 Plug 'ThePrimeagen/jvim.nvim'
 
+" GitHub integration so that commands like `Git add` etc
+" can be run from within vim.
 Plug 'tpope/vim-fugitive'
 
+" no idea :(
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'rktjmp/lush.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+
+" Color scheme for nvim
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 
+" no idea :(
 Plug 'numToStr/Comment.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'akinsho/toggleterm.nvim'
 Plug 'romgrk/barbar.nvim'
+
+" Statusline
 Plug 'nvim-lualine/lualine.nvim'
+
+" no idea :(
 Plug 'SmiteshP/nvim-navic'
 Plug 'mbbill/undotree'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
@@ -56,8 +77,21 @@ call plug#end()
 " General Settings
 "
 
-" set number relativenumber
+" set number so that every buffer shows line numbers
 set number
+
+" far left column to show modified lines and LSP diagnostics
+set signcolumn=yes
+
+" tabs are converted to 4 spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" Always show the statusline
+set laststatus=3
+
+" no idea :(
 set encoding=utf-8
 set fileencoding=utf-8
 set mouse=a
@@ -69,22 +103,19 @@ set foldmethod=marker
 set title
 set noshowmode
 set virtualedit=block
-set signcolumn=yes
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
-set laststatus=3
 set winbar=%=%m\ %f
 
+" no idea :(
 setglobal termguicolors
 
+" in mapped key commands <leader> is the space key
 let mapleader = " "
 
 "
 " Autocommands
 "
 
+" no idea :(
 augroup cleanup_file
     autocmd!
     autocmd BufWritePre * let save_pos = getpos('.')
@@ -94,72 +125,18 @@ augroup cleanup_file
     autocmd BufWritePre * lua vim.lsp.buf.format()
 augroup END
 
+" no idea :(
 augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=40})
 augroup END
 
+" no idea :(
 autocmd BufEnter * setlocal fo-=c fo-=r fo-=o
 
+" no idea :(
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
-
-
-"
-" Keybindings
-"
-
-nnoremap <silent> <C-s> :w<CR>
-
-"" Navigating Splits
-nnoremap <silent> <A-h> <C-w><C-h>
-nnoremap <silent> <A-j> <C-w><C-j>
-nnoremap <silent> <A-k> <C-w><C-k>
-nnoremap <silent> <A-l> <C-w><C-l>
-
-"" Resizing Splits
-nnoremap <silent> <C-Up>    :resize +2<CR>
-nnoremap <silent> <C-Down>  :resize -2<CR>
-nnoremap <silent> <C-Left>  :vertical resize +2<CR>
-nnoremap <silent> <C-Right> :vertical resize -2<CR>
-
-"" Spell Checking
-nnoremap <silent> <Leader>sc :set spell!<CR>
-
-"" System Clipboard
-nnoremap <silent> <Leader>y "+y
-nnoremap <silent> <Leader>p "+p
-
-vnoremap <silent> <Leader>y "+y
-vnoremap <silent> <Leader>p "+p
-
-"" Centering Stuff
-nnoremap <silent> n nzzzv
-nnoremap <silent> N Nzzzv
-nnoremap <silent> G Gzzzv
-
-
-inoremap <silent> ,         ,<C-g>u
-inoremap <silent> .         .<C-g>u
-inoremap <silent> <Space>   <Space><C-g>u
-
-inoremap <silent> <A-k> <Up>
-inoremap <silent> <A-j> <Down>
-inoremap <silent> <A-h> <Left>
-inoremap <silent> <A-l> <Right>
-
-
-vnoremap <silent> < <gv
-vnoremap <silent> > >gv
-
-vnoremap <silent> <A-k> :move '<-2<CR>gv-gv
-vnoremap <silent> <A-j> :move '>+1<CR>gv-gv
-
-
-xnoremap <silent> p pgvy
-
-"" Undo Tree
-nnoremap <silent> <F5> :UndotreeToggle<CR>
 
 
 "
@@ -184,42 +161,6 @@ require("gruvbox").setup({
 })
 EOF
 colorscheme gruvbox
-
-
-" jump to start of line
-function! JumpToStartOfLine()
-
-   let l:CurCol = col(".")
-
-   if l:CurCol == 1
-      normal _
-   else
-      normal 0
-      " call cursor(".", 1)
-   endif
-
-endfunction
-
-" jump to end line
-function! JumpToEndOfLine()
-
-   let l:CurCol = col(".")
-   let l:EndCol = col("$")-1
-
-   if l:CurCol == l:EndCol
-      normal g_
-   else
-      normal $
-      " exec 'call cursor(".", '.l:EndCol.')'
-   endif
-
-endfunction
-
-nnoremap H :call JumpToStartOfLine()<CR>
-nnoremap L :call JumpToEndOfLine()<CR>
-
-
-
 
 "
 " Lua Config
